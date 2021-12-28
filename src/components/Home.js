@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
+import {useSelector} from 'react-redux';
 const Home = () => {
   let isAdded = useSelector(state => state.data.Items);
   console.log(isAdded);
