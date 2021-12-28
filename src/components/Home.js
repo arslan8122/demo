@@ -1,10 +1,13 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-
+import {useDispatch, useSelector} from 'react-redux';
 const Home = () => {
+  let isAdded = useSelector(state => state.data.Items);
+  console.log(isAdded);
   return (
     <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
       <Text>Home</Text>
+      <Text>{isAdded[0]}</Text>
     </View>
   );
 };
