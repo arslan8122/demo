@@ -1,12 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {useSelector} from 'react-redux';
-import {width} from 'react-native-dimension';
 // import all the components we are going to use
 import {SafeAreaView, Text, StyleSheet, View, FlatList} from 'react-native';
 import {SearchBar} from 'react-native-elements';
 import {colors} from './styles/colors';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {ItemView} from './ItemView';
+import style from './styles/style';
 const Home = () => {
   let isAdded = useSelector(state => state.data.Items);
   console.log(isAdded);
@@ -49,64 +49,24 @@ const Home = () => {
     }
   };
 
-  const ItemSeparatorView = () => {
-    return (
-      // Flat List Item Separator
-      <View
-        style={{
-          height: 0.5,
-          width: '100%',
-          backgroundColor: '#C8C8C8',
-        }}
-      />
-    );
-  };
-
-  const getItem = item => {
-    // Function for click on an item
-    alert('Id : ' + item.id + ' Title : ' + item.title);
-  };
   return (
-    // <View
-    //   style={{
-    //     flex: 1,
-    //     justifyContent: 'center',
-    //     alignItems: 'center',
-    //     backgroundColor: 'white',
-    //   }}>
-    //   <Text>Home</Text>
-    //   <Text>{isAdded[0]}</Text>
-    // </View>
-    <SafeAreaView style={{flex: 1}}>
-      <View style={styles.container}>
-        <View
-          style={{
-            width: width(100),
-            backgroundColor: 'black',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}>
-          <View style={{flex: 10}}>
+    <SafeAreaView style={style.continerFlex}>
+      <View style={style.containerBackground}>
+        <View style={style.search}>
+          <View style={style.searchFlex}>
             <SearchBar
-              containerStyle={{backgroundColor: colors.BLACK}}
-              inputContainerStyle={{
-                backgroundColor: colors.BLACK,
-                borderColor: 'grey',
-                borderWidth: 1,
-                borderBottomWidth: 1,
-                borderRadius: 35,
-              }}
+              containerStyle={style.containerBackground}
+              inputContainerStyle={style.inputStyle}
               round
               searchIcon={{size: 22}}
               onChangeText={text => searchFilterFunction(text)}
               onClear={text => searchFilterFunction('')}
               placeholder="Search all 28 items"
               value={search}
-              style={{backgroundColor: colors.BLACK}}
+              style={style.containerBackground}
             />
           </View>
-          <View style={{flex: 1}}>
+          <View style={style.continerFlex}>
             <Icon name="filter" size={26} color={colors.GREY} />
           </View>
         </View>
@@ -122,12 +82,3 @@ const Home = () => {
 };
 
 export default Home;
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: colors.BLACK,
-  },
-  itemStyle: {
-    padding: 10,
-  },
-});
