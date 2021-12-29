@@ -1,28 +1,27 @@
 import React, {useState, useEffect} from 'react';
 import {useSelector} from 'react-redux';
 // import all the components we are going to use
-import {SafeAreaView, Text, View, FlatList, Image} from 'react-native';
+import {
+  SafeAreaView,
+  Text,
+  View,
+  FlatList,
+  Image,
+  ScrollView,
+} from 'react-native';
 import StarRating from 'react-native-star-rating';
 import {ReviewCard} from './ReviewCard';
 import style from './styles/style';
 import {profile} from '../../assetsImport';
 
 const Reviews = () => {
-  let isAdded = useSelector(state => state.data.Items);
+  let data = useSelector(state => state.data.Items);
 
   const [masterDataSource, setMasterDataSource] = useState([]);
 
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
-      .then(response => response.json())
-      .then(responseJson => {
-        setMasterDataSource(responseJson);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-  }, []);
-
+    setMasterDataSource(data);
+  });
   const FlatListItemSeparator = () => {
     return <View style={style.list_seprator} />;
   };

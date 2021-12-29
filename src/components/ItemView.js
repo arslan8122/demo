@@ -19,7 +19,7 @@ export const ItemView = ({item}) => {
           <Icon name="heart-o" size={16} color={colors.BLACK} />
         </View>
       </View>
-      <Text style={style.card_text}>Sample Text</Text>
+      <Text style={style.card_text}>{item.title}</Text>
       <Text style={style.price_text}>$11.0</Text>
     </View>
   );

@@ -1,29 +1,22 @@
 import React, {useState, useEffect} from 'react';
 import {useSelector} from 'react-redux';
 // import all the components we are going to use
-import {SafeAreaView, Text, StyleSheet, View, FlatList} from 'react-native';
+import {View, FlatList, ScrollView, SafeAreaView} from 'react-native';
 import {SearchBar} from 'react-native-elements';
 import {colors} from './styles/colors';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {ItemView} from './ItemView';
 import style from './styles/style';
 const Home = () => {
-  let isAdded = useSelector(state => state.data.Items);
-  console.log(isAdded);
+  let data = useSelector(state => state.data.Items);
+
   const [search, setSearch] = useState('');
   const [filteredDataSource, setFilteredDataSource] = useState([]);
   const [masterDataSource, setMasterDataSource] = useState([]);
 
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
-      .then(response => response.json())
-      .then(responseJson => {
-        setFilteredDataSource(responseJson);
-        setMasterDataSource(responseJson);
-      })
-      .catch(error => {
-        console.error(error);
-      });
+    setFilteredDataSource(data);
+    setMasterDataSource(data);
   }, []);
 
   const searchFilterFunction = text => {
@@ -50,7 +43,7 @@ const Home = () => {
   };
 
   return (
-    <SafeAreaView style={style.continerFlex}>
+    <SafeAreaView style={style.continerFlexHome}>
       <View style={style.containerBackground}>
         <View style={style.search}>
           <View style={style.searchFlex}>
@@ -70,6 +63,7 @@ const Home = () => {
             <Icon name="filter" size={26} color={colors.GREY} />
           </View>
         </View>
+
         <FlatList
           data={filteredDataSource}
           keyExtractor={(item, index) => index.toString()}

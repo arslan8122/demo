@@ -4,6 +4,7 @@ import {width, height} from 'react-native-dimension';
 export default StyleSheet.create({
   Center: {flex: 1, justifyContent: 'center', alignItems: 'center'},
   continerFlex: {flex: 1},
+  continerFlexHome: {flex: 1, backgroundColor: colors.BLACK},
   searchFlex: {flex: 10},
   imageFlex: {flex: 9},
   review_dflex: {flex: 3},
@@ -24,7 +25,7 @@ export default StyleSheet.create({
     borderBottomWidth: 1,
     borderRadius: 35,
   },
-  review_margin: {marginTop: 20},
+  review_margin: {marginTop: 20, flex: 1},
   review_imageD: {width: 40, height: 40, borderRadius: 20},
   container: {
     flex: 1,

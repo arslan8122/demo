@@ -1,7 +1,16 @@
 import ACTIONS from './actions';
 
 const initialState = {
-  Items: ['wow', 'wow'],
+  Items: [
+    {id: 1, title: 'skati'},
+    {id: 2, title: 'toty'},
+    {id: 3, title: 'skati'},
+    {id: 4, title: 'skati'},
+    {id: 5, title: 'skati'},
+    {id: 6, title: 'skati'},
+    {id: 7, title: 'skati'},
+    {id: 8, title: 'skati'},
+  ],
 };
 
 const DataReducer = (state = initialState, action) => {
