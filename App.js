@@ -7,6 +7,9 @@ import Favorites from './src/components/Favorites';
 import Updates from './src/components/Updates';
 import You from './src/components/You';
 import Cart from './src/components/Cart';
+import {home, bell, heart, user, cart} from './assetsImport.js';
+import {colors} from './src/components/styles/colors';
+
 const Tab = createBottomTabNavigator();
 
 export default function App() {
@@ -14,31 +17,30 @@ export default function App() {
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={({route}) => ({
-          headerTitleStyle: {color: 'white'},
+          headerTitleStyle: {color: colors.WHITE},
           headerStyle: {
-            backgroundColor: 'rgba(34,36,40,1)',
+            backgroundColor: colors.BLACK,
           },
           tabBarStyle: {
-            backgroundColor: 'rgba(34,36,40,1)',
+            backgroundColor: colors.BLACK,
           },
           tabBarIcon: ({focused, color, size}) => {
             let iconName;
 
             if (route.name === 'Home') {
-              iconName = require('./assets/home.png');
+              iconName = home;
             } else if (route.name === 'Updates') {
-              iconName = require('./assets/bell.png');
+              iconName = bell;
             } else if (route.name === 'You') {
-              iconName = require('./assets/user.png');
+              iconName = user;
             } else if (route.name === 'Cart') {
-              iconName = require('./assets/cart.png');
+              iconName = cart;
             } else if (route.name === 'Favorites') {
-              iconName = require('./assets/heart.png');
+              iconName = heart;
             }
             // You can return any component that you like here!
 
             return (
-              // <MaterialCommunityIcons name="rocket" />
               <View>
                 <Image
                   source={iconName}
@@ -46,14 +48,14 @@ export default function App() {
                   style={{
                     width: 25,
                     height: 25,
-                    tintColor: focused ? 'white' : 'grey',
+                    tintColor: focused ? colors.WHITE : colors.GREY,
                   }}
                 />
               </View>
             );
           },
-          tabBarActiveTintColor: 'white',
-          tabBarInactiveTintColor: 'gray',
+          tabBarActiveTintColor: colors.WHITE,
+          tabBarInactiveTintColor: colors.GREY,
         })}
         tabBarOptions={{
           showLabel: true,
@@ -62,10 +64,10 @@ export default function App() {
           keyboardHidesTabBar: true,
         }}>
         <Tab.Screen name="Home" component={HomeScreen} />
+        <Tab.Screen name="Favorites" component={Favorites} />
         <Tab.Screen name="Updates" component={Updates} />
         <Tab.Screen name="You" component={You} />
         <Tab.Screen name="Cart" component={Cart} />
-        <Tab.Screen name="Favorites" component={Favorites} />
       </Tab.Navigator>
     </NavigationContainer>
   );

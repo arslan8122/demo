@@ -5,7 +5,13 @@ const Home = () => {
   let isAdded = useSelector(state => state.data.Items);
   console.log(isAdded);
   return (
-    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+    <View
+      style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'white',
+      }}>
       <Text>Home</Text>
       <Text>{isAdded[0]}</Text>
     </View>

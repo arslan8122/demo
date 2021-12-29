@@ -4,28 +4,28 @@ import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs
 import Home from './Home';
 import Reviews from './Reviews';
 import About from './About';
-
+import {colors} from './styles/colors';
 const Tab = createMaterialTopTabNavigator();
 
 const HomeScreen = () => {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarIndicatorStyle: {backgroundColor: 'gray', height: 3},
+        tabBarIndicatorStyle: {backgroundColor: colors.GREY, height: 3},
       }}
       tabBarOptions={{
         //other properties
         labelStyle: {
-          color: 'white',
+          color: colors.WHITE,
         },
-        pressColor: 'gray',
+        pressColor: colors.GREY,
         //for click (ripple) effect color
         style: {
-          backgroundColor: 'rgba(34,36,40,1)',
-          activeTintColor: 'white', //color you want to change
+          backgroundColor: colors.BLACK,
+          activeTintColor: colors.WHITE, //color you want to change
         },
       }}>
-      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="Items" component={Home} />
       <Tab.Screen name="Reviews" component={Reviews} />
       <Tab.Screen name="About" component={About} />
     </Tab.Navigator>
