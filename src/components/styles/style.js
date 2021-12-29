@@ -5,6 +5,8 @@ export default StyleSheet.create({
   Center: {flex: 1, justifyContent: 'center', alignItems: 'center'},
   continerFlex: {flex: 1},
   searchFlex: {flex: 10},
+  imageFlex: {flex: 9},
+  review_dflex: {flex: 3},
   containerBackground: {
     backgroundColor: colors.BLACK,
   },
@@ -22,6 +24,8 @@ export default StyleSheet.create({
     borderBottomWidth: 1,
     borderRadius: 35,
   },
+  review_margin: {marginTop: 20},
+  review_imageD: {width: 40, height: 40, borderRadius: 20},
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -59,4 +63,26 @@ export default StyleSheet.create({
     height: 50,
   },
   review_title: {flex: 8, padding: 12},
+  fontBold: {color: colors.WHITE, fontWeight: 'bold'},
+  review_Flex: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  list_seprator: {
+    height: 1,
+    width: '100%',
+    backgroundColor: colors.BLACK,
+  },
+  review_date: {color: colors.WHITE, fontSize: 10},
+  review_star: {flex: 1, paddingLeft: 10, marginTop: 10},
+  review_color: {color: colors.WHITE, paddingLeft: 10},
+  card_design: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingLeft: 10,
+    marginTop: 20,
+  },
+  imageWidth: {width: 25, height: 25},
 });

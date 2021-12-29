@@ -2,12 +2,10 @@ import React, {useState, useEffect} from 'react';
 import {useSelector} from 'react-redux';
 // import all the components we are going to use
 import {SafeAreaView, Text, View, FlatList, Image} from 'react-native';
-import {width, height} from 'react-native-dimension';
 import StarRating from 'react-native-star-rating';
 import {ReviewCard} from './ReviewCard';
 import style from './styles/style';
 import {profile} from '../../assetsImport';
-import {colors} from './styles/colors';
 
 const Reviews = () => {
   let isAdded = useSelector(state => state.data.Items);
@@ -24,19 +22,9 @@ const Reviews = () => {
         console.error(error);
       });
   }, []);
-  const ratingCompleted = rating => {
-    console.log('Rating is: ' + rating);
-  };
+
   const FlatListItemSeparator = () => {
-    return (
-      <View
-        style={{
-          height: 1,
-          width: '100%',
-          backgroundColor: colors.BLACK,
-        }}
-      />
-    );
+    return <View style={style.list_seprator} />;
   };
 
   return (
@@ -51,28 +39,20 @@ const Reviews = () => {
             />
           </View>
           <View style={style.review_title}>
-            <Text style={{color: 'white', fontWeight: 'bold'}}>
-              PetsPettostore{' '}
-            </Text>
-            <View
-              style={{
-                flexDirection: 'row',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}>
-              <View style={{flex: 1}}>
+            <Text style={style.fontBold}>PetsPettostore </Text>
+            <View style={style.review_Flex}>
+              <View style={style.continerFlex}>
                 <StarRating
                   disabled={false}
                   containerStyle={{width: 50}}
                   maxStars={5}
                   rating={5}
                   starSize={14}
-                  starStyle={{color: 'white'}}
-                  // selectedStar={(rating) => this.onStarRatingPress(rating)}
+                  starStyle={style.card_title}
                 />
               </View>
-              <View style={{flex: 3}}>
-                <Text style={{color: 'white'}}>25 Reviews</Text>
+              <View style={style.review_dflex}>
+                <Text style={style.card_title}>25 Reviews</Text>
               </View>
             </View>
           </View>
